@@ -46,8 +46,9 @@ def main():
     """
     dfa_1 = DFA(possible_states={0, 1, 2}, final_states={0, 1}, initial_state=0, sigma={"a", "b"},
                 delta={(0, "a"): 0, (0, "b"): 1, (1, "a"): 2, (1, "b"): 1, (2, "a"): 2, (2, "b"): 2})
-    words = ["aa", "ab", "aab", "aabb"]
+    words = ["aa", "ab", "aab", "aabb", "ba", "aba"]
     for word in words:
         print(f"Output for {word}: ", dfa_1.run(word))
+
 if __name__=="__main__":
     main()
