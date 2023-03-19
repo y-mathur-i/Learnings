@@ -39,6 +39,14 @@ class DFA:
             i += 1
         return curr_state in self.final_states
 
+    def minimize(self) -> None:
+        """
+        Method to minimize the dfa
+        by finding state you can distinguish and then create a set with them
+        After creating the set
+        # TODO: write function for this
+        """
+        pass
 
 def main():
     """
