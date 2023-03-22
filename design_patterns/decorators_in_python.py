@@ -7,6 +7,10 @@ from typing import Callable
 def my_decorator(function: Callable) -> Callable:
     """
     Example decorator
+    One caveat is that on calling help .i.e the function data like and and doc
+    It will return the wrapper functions doc and name for a wrapped function
+    To handle that (The logic works without it to)
+    we use something called @wraps from functools
     """
     def wrapper(*args, **kwargs):  # to allow passing of arguments to the function it wraps
         """
