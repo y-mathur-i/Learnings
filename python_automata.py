@@ -48,6 +48,7 @@ class DFA:
         """
         pass
 
+
 def main():
     """
     main method
