@@ -15,6 +15,6 @@ def search_string(string_one: str, string_two: str) -> int:
 
 if __name__ == "__main__":
     string_one = "aaaaaabcb"
-    string_two = "aaaaabc"
+    string_two = "aaaaabcsdf"
     print(search_string(string_one, string_two))
  
