@@ -1,6 +1,8 @@
 """Module for open close start from the code in open close principle.
+    open for extension and close for modification
 """
 from enum import Enum
+from abc import ABCMeta, abstractmethod, ABC
 
 
 class Status(Enum):
@@ -38,24 +40,35 @@ class Order:
 
     # def pay() # a convoluted function handling all and every type of payment
 
-class PaymentProcessor:
-    """Class to process payments
+
+class IPaymentProcessor(ABC):
+    """Interface for payment processor class
     """
-    def pay_credit(self, order: Order, security_code: str) -> bool:
-        """Method to process payment via credit mode
+    @abstractmethod
+    def pay(self, order: Order, security_code: str) -> None:
+        """Method to be implemented by payment method
         """
+
+
+class DebitPaymentProcessor(IPaymentProcessor):
+    """class to process payment via debit mode
+    """
+    def pay(self, order: Order, security_code: str) -> None:
         print(f"process the order {security_code}")
         order.set_status(Status.PAID)
 
-    def pay_debit(self, order: Order, security_code: str) -> bool:
-        """Method to process payment via debit mode
-        """
+
+class CreditPaymentProcessor(IPaymentProcessor):
+    """Method to process payment via credit mode
+    """
+    def pay(self, order: Order, security_code: str) -> None:
         print(f"process the order {security_code}")
         order.set_status(Status.PAID)
-
 
 
 if __name__ == "__main__":
-    payment_processor = PaymentProcessor()
-    ### now Open/Close principle -> open for extension and closed for modification    
+    order = Order()
+    order.add_item("Milk", 2, 30)
+    payment_processor = DebitPaymentProcessor()
+    payment_processor.pay(order, "123")
     
