@@ -34,3 +34,4 @@ if __name__ == "__main__":
     trie.insert("HELLO")
     assert trie.search("HELLO")
     assert not trie.search("BYE")
+
