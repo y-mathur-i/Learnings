@@ -11,10 +11,14 @@ def create_lps_array(string: str) -> List[int]:
     while right < len(string):
         if string[left] == string[right]:
             left += 1
+            arr[right] = left
+            right += 1
         else:
-            left = 0
-        arr[right] = left
-        right += 1
+            if left != 0:
+                left = arr[left-1]
+            else:
+                arr[right] = 0
+                right += 1
     return arr
 
 def search_string(string_one: str, pattern: str) -> int:
