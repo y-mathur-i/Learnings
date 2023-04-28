@@ -22,7 +22,7 @@ def create_lps_array(string: str) -> List[int]:
     return arr
 
 def search_string(string_one: str, pattern: str) -> int:
-    """Method to search for string_two in string_one
+    """Method to search for string_two in string one
         usign kmp algorithm and return the first index it shows up on.
         proper prefix & proper suffix
         prefix and sufix that are subset of the string
