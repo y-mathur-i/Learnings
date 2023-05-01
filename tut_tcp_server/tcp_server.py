@@ -1,12 +1,14 @@
-import socket
-import sys
+"""Tcp server module
+"""
 
-SERVER_ADDRESS = ("localhost", 8008)
-BUFFER_SIZE = 16
+import socket
+from constant import Constant
 
 def main():
+    """fn to start the server and echo the data
+    """
     socket_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    socket_.bind(SERVER_ADDRESS)
+    socket_.bind(Constant.Config.SERVER_ADDRESS)
     socket_.listen(1)
     while True:
         print("waiting for connection")
@@ -14,7 +16,7 @@ def main():
         print(f"Connection created on address: {client_address}")
         try:
             while True:
-                data = connection.recv(BUFFER_SIZE)
+                data = connection.recv(Constant.Config.BUFFER_SIZE)
                 print("Data received: ", data)  
                 if data:
                     # send the data back
