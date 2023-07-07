@@ -1,0 +1,15 @@
+A pattern used in concurrent programming
+It involves shared buffer, consumer, producer
+
+The producer produces tasks and adds those to shared buffer
+From the there the consumer picks those up
+
+Shared buffer will have to be thread safe so multiple threads can access/modify it.
+Without corrputing the data structure and creating a race condition.
+
+Aditionaly if the size of the shared buffer is limited.
+
+Sentinal value -> used to terminate the algo
+Added to shared queue by producer to signal no further creation and used in last
+by consumer to terminate the programm
+
