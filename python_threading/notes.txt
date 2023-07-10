@@ -1,1 +1,5 @@
 https://superfastpython.com/threading-in-python/
+
+fns in thread
+extending thread
+attributes of thread
