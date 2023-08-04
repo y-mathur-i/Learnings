@@ -56,5 +56,32 @@ class MinQueueOne:
             self.que.popleft()
 
 
+class MinQueueTwo:
+    """The idea is similar but we want to store index
+        So we don't need to know the element we have to remove
+    """
+    def __init__(self) -> None:
+        self.que = deque()
+        self.added = 0  # acts as the index at end
+        self.removed = 0  # acts as the index at front
 
+    def insert(self, val: int) -> None:
+        """Method to insert in the queue
+        """
+        while self.que and self.que[0][0] > val:
+            self.que.pop()
+        self.que.append((val, self.added))
+        self.added += 1
+
+    def get_min(self) -> int:
+        """Method to get min from queue
+        """
+        return self.que[0][0] if self.que else None
+
+    def remove(self) -> int:
+        """Method to remove from from of the queue
+        """
+        if self.que and self.que[0][1] == self.removed:
+            self.que.pop()
+        self.removed += 1
 
