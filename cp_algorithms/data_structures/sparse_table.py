@@ -44,7 +44,7 @@ def construct_sparse_table(arr: List[int], computation_fn: callable) -> List:
     res[0] = arr[:]
     for i in range(1, len(res)):
         for j in range(len(res[i])):
-            if j + (1 << (i-1)) < len(res[i]):
+            if j + (1 << i-1) <= len(res[i]):  # skip ranges that fall out of bounds
                 res[i][j] = computation_fn(res[i-1][j], res[i-1][j + (1 << (i-1))])
     for row in res:
         print(row)
